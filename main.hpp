@@ -10,7 +10,7 @@
 
 // Prototypes
 void eratosthenes(int n, int* sieve);
-int inversionCount(int size, int *numbers, int *inversions);
-void memswap(char *mem1, char *mem2, int size);
+void stringString(char *haystack, char *needle, char **ptr);
+void minMax(double **matrix, size_t size, double **min, double **max);
 
 #endif /* main_h */

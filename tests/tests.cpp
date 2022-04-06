@@ -7,7 +7,6 @@
 #include "../main.hpp"
 #include <string.h>
 
-
 // =====================
 // tests for exercise 1
 // ---------------------
@@ -38,101 +37,101 @@ TEST_CASE("Test2", "[Sieve]")
 // tests for exercise 2
 // ---------------------
 
-TEST_CASE("Test3", "[InversionCount]")
+TEST_CASE("Test3", "[StringString]")
 {
-    int expected [5] = {0};
-    int numbers [5]  = {1,2,3,4,5};
-    int inversions [5] = {1,1,1,1,1};
-    inversionCount(5,numbers,inversions);
-    INFO("Testing inversions for numbers {1,2,3,4,5} failed.");
-    for(int i = 0; i < 5; i++){
-        REQUIRE(inversions[i] == expected[i]);
-    }
+    char haystack[] = "Hello World!";
+    char needle[] = "or";
+    char *occurrence;
+    stringString(haystack, needle, &occurrence);
+    INFO("Testing to find substring 'or' in 'Hello World!'.");
+    REQUIRE(strcmp(occurrence,"orld!")==0);
 }
 
-TEST_CASE("Test4", "[InversionCount]")
+TEST_CASE("Test4", "[StringString]")
 {
-    int numbers [5]  = {1,2,3,4,5};
-    int inversions [5];
-    int total = inversionCount(5,numbers,inversions);
-    INFO("Testing total inversions for numbers {1,2,3,4,5} failed.");
-    REQUIRE(total == 0);
+    char haystack[] = "Hello World!";
+    char needle[] = "Or";
+    char *occurrence;
+    stringString(haystack, needle, &occurrence);
+    INFO("Testing to find substring 'Or' in 'Hello World!'.");
+    REQUIRE(occurrence == NULL);
 }
 
-TEST_CASE("Test5", "[InversionCount]")
+TEST_CASE("Test5", "[StringString]")
 {
-    int expected [9] = {3,4,2,2,2,2,2,0,0};
-    int numbers [9]  = {5,6,3,5,7,8,9,1,2};
-    int inversions [9];
-    inversionCount(9,numbers,inversions);
-    INFO("Testing inversions for numbers {5,6,3,5,7,8,9,1,2} failed.");
-    for(int i = 0; i < 9; i++){
-        REQUIRE(inversions[i] == expected[i]);
-    }
-}
-
-TEST_CASE("Test6", "[InversionCount]")
-{
-    int numbers [9]  = {5,6,3,5,7,8,9,1,2};
-    int inversions [9];
-    int total = inversionCount(9,numbers,inversions);
-    INFO("Testing total inversions for numbers {5,6,3,5,7,8,9,1,2} failed.");
-    REQUIRE(total == 17);
-}
-
-TEST_CASE("Test7", "[InversionCount]")
-{
-    int expected [1] = {0};
-    int numbers [1]  = {1};
-    int inversions [1] = {1};
-    inversionCount(1,numbers,inversions);
-    INFO("Testing inversions for numbers {1} failed.");
-    for(int i = 0; i < 1; i++){
-        REQUIRE(inversions[i] == expected[i]);
-    }
-}
-
-TEST_CASE("Test8", "[InversionCount]")
-{
-    int numbers [1]  = {1};
-    int inversions [1];
-    int total = inversionCount(1,numbers,inversions);
-    INFO("Testing total inversions for numbers {1} failed.");
-    REQUIRE(total == 0);
+    char haystack[] = "aaabaaabaaaabcde";
+    char needle[] = "aaaab";
+    char *occurrence;
+    stringString(haystack, needle, &occurrence);
+    INFO("Testing to find substring 'aaaab' in 'aaabaaabaaaabcde'.");
+    REQUIRE(strcmp(occurrence,"aaaabcde")==0);
 }
 
 // =====================
 // tests for exercise 3
 // ---------------------
 
-TEST_CASE("Test9", "[MemSwap]")
+TEST_CASE("Test6", "[MinMax]")
 {
-    int data1[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-    int data2[10] = { 101, 234, 398, 434, 523, 616, 748, 856, 901, 133 };
-    int comparison1[10];
-    int comparison2[10];
-    memcpy(comparison1,data1,sizeof(data1));
-    memcpy(comparison2,data2,sizeof(data1));
-    memswap((char*)data1, (char*)data2, sizeof(data1));
-    INFO("Testing MemSwap on integer arrays failed.");
-    for(int i = 0; i < 10; i++){
-        REQUIRE(data1[i] == comparison2[i]);
-        REQUIRE(data2[i] == comparison1[i]);
+    size_t SIZE = 3;
+    double *min, *max;
+    double **matrix = (double **) malloc(SIZE * sizeof(double *));
+    for (int i = 0; i < SIZE; i++) {
+        matrix[i] = (double *) malloc(SIZE * sizeof(double));
     }
+    for(int i = 0; i < SIZE; i++){
+        for(int j = 0; j < SIZE; j++){
+            matrix[i][j] = i + j;
+        }
+    }
+    minMax(matrix, SIZE, &min, &max);
+    INFO("Testing if the minimum 0.0 was found correctly:");
+    REQUIRE(*min == 0.0);
+    INFO("Minimum was correct.");
+    INFO("Testing if the maximum 4.0 was found correctly:");
+    REQUIRE(*max == 4.0);
 }
 
-TEST_CASE("Test10", "[MemSwap]")
+TEST_CASE("Test7", "[MinMax]")
 {
-    short data1[10] = { 0x7FFF, 2, 3, 4, 5, 6, 7, 8, 9, 0x7FFF};
-    short data2[10] = { 101, 234, 398, 434, 523, 616, 748, 856, 901, 133 };
-    short comparison1[10];
-    short comparison2[10];
-    memcpy(comparison1,data1,sizeof(data1));
-    memcpy(comparison2,data2,sizeof(data1));
-    memswap((char*)data1, (char*)data2, sizeof(data1));
-    INFO("Testing MemSwap on short arrays failed.");
-    for(int i = 0; i < 10; i++){
-        REQUIRE(data1[i] == comparison2[i]);
-        REQUIRE(data2[i] == comparison1[i]);
+    size_t SIZE = 1;
+    double *min, *max;
+    double **matrix = (double **) malloc(SIZE * sizeof(double *));
+    for (int i = 0; i < SIZE; i++) {
+        matrix[i] = (double *) malloc(SIZE * sizeof(double));
     }
+    for(int i = 0; i < SIZE; i++){
+        for(int j = 0; j < SIZE; j++){
+            matrix[i][j] = i + j;
+        }
+    }
+    minMax(matrix, SIZE, &min, &max);
+    INFO("Testing if the minimum 0.0 was found correctly:");
+    REQUIRE(*min == 0.0);
+    INFO("Minimum was correct.");
+    INFO("Testing if the maximum 0.0 was found correctly:");
+    REQUIRE(*max == 0.0);
+}
+
+TEST_CASE("Test8", "[MinMax]")
+{
+    size_t SIZE = 5;
+    double *min, *max;
+    double **matrix = (double **) malloc(SIZE * sizeof(double *));
+    for (int i = 0; i < SIZE; i++) {
+        matrix[i] = (double *) malloc(SIZE * sizeof(double));
+    }
+    for(int i = 0; i < SIZE; i++){
+        for(int j = 0; j < SIZE; j++){
+            matrix[i][j] = i + j;
+        }
+    }
+    matrix[0][0] = 100.0;
+    matrix[2][2] = -3.0;
+    minMax(matrix, SIZE, &min, &max);
+    INFO("Testing if the minimum -3.0 was found correctly:");
+    REQUIRE(*min == -3.0);
+    INFO("Minimum was correct.");
+    INFO("Testing if the maximum 100.0 was found correctly:");
+    REQUIRE(*max == 100.0);
 }

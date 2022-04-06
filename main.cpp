@@ -18,18 +18,17 @@ void eratosthenes(int n, int* sieve){
 }
 
 // =====================
-// Exercise 2 - InversionCount
+// Exercise 2 - Needle in a Haystack
 // ---------------------
-int inversionCount(int size, int *numbers, int *inversions){
+void stringString(char *haystack, char *needle, char **ptr){
     //TODO
-    return -1;
 }
 
 // =====================
-// Exercise 3 - MemSwap
+// Exercise 3 - Min-Max
 // ---------------------
-void memswap(char *mem1, char *mem2, int size) {
-    // TODO
+void minMax(double **matrix, size_t size, double **min, double **max){
+    //TODO
 }
 
 
@@ -59,10 +58,11 @@ int main(int argc, char* const argv[] ){
     // =====================
     // Exercise 2
     // ---------------------
-    // Define two arrays of equal size n
-    // Initialize one array with random ints
-    // call inversionCount and pass the parameters
-    // print all inversions and the total
+    // A C String is defined like char needle[] = "substring";
+    // Define two of them as local variables
+    // Define a temporary pointer for the result
+    // call stringString and pass the parameters
+    // print the string pointed to by the temporary pointer variable
    
     
     
@@ -74,11 +74,11 @@ int main(int argc, char* const argv[] ){
     // =====================
     // Exercise 3
     // ---------------------
-    // Define two arrays of equal size n
-    // The type can be any simple type
-    // Print the two arrays before memswap
-    // Call memswap
-    // Print the two arrays after memswap
+    // Define a matrix using malloc
+    // Look into the test case how this is done
+    // Define two local pointer variables
+    // Call minMax
+    // Print the values referred to by the two pointers
     
     
     

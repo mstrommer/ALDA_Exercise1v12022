@@ -51,7 +51,7 @@ TEST_CASE("Test4", "[StringString]")
 {
     char haystack[] = "Hello World!";
     char needle[] = "Or";
-    char *occurrence;
+    char *occurrence = needle;
     stringString(haystack, needle, &occurrence);
     INFO("Testing to find substring 'Or' in 'Hello World!'.");
     REQUIRE(occurrence == NULL);

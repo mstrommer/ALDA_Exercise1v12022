@@ -1,0 +1,84 @@
+{
+  "tests": [
+    {
+      "name": "Sieve 1",
+      "setup": "make exercise1",
+      "run": "./exercise1 Test1",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 3
+    },
+    {
+      "name": "Sieve 2",
+      "setup": "make exercise1",
+      "run": "./exercise1 Test2",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 3
+    },
+    {
+      "name": "StringString 1",
+      "setup": "make exercise1",
+      "run": "./exercise1 Test3",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 2
+    },
+    {
+      "name": "StringString 2",
+      "setup": "make exercise1",
+      "run": "./exercise1 Test4",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 2
+    },
+    {
+      "name": "StringString 2",
+      "setup": "make exercise1",
+      "run": "./exercise1 Test5",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 2
+    },
+    {
+      "name": "MinMax 1",
+      "setup": "make exercise1",
+      "run": "./exercise1 Test6",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 1
+    },
+    {
+      "name": "MinMax 2",
+      "setup": "make exercise1",
+      "run": "./exercise1 Test7",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 1
+    },
+    {
+      "name": "MinMax 3",
+      "setup": "make exercise1",
+      "run": "./exercise1 Test8",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 1
+    }
+  ]
+}

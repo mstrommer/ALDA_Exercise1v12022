@@ -41,7 +41,8 @@ TEST_CASE("Test3", "[StringString]")
 {
     char haystack[] = "Hello World!";
     char needle[] = "or";
-    char *occurrence;
+    char testString[] = "something";
+    char *occurrence = testString;
     stringString(haystack, needle, &occurrence);
     INFO("Testing to find substring 'or' in 'Hello World!'.");
     REQUIRE(strcmp(occurrence,"orld!")==0);
@@ -51,7 +52,8 @@ TEST_CASE("Test4", "[StringString]")
 {
     char haystack[] = "Hello World!";
     char needle[] = "Or";
-    char *occurrence = needle;
+    char testString[] = "something";
+    char *occurrence = testString;
     stringString(haystack, needle, &occurrence);
     INFO("Testing to find substring 'Or' in 'Hello World!'.");
     REQUIRE(occurrence == NULL);
@@ -61,7 +63,8 @@ TEST_CASE("Test5", "[StringString]")
 {
     char haystack[] = "aaabaaabaaaabcde";
     char needle[] = "aaaab";
-    char *occurrence;
+    char testString[] = "something";
+    char *occurrence = testString;
     stringString(haystack, needle, &occurrence);
     INFO("Testing to find substring 'aaaab' in 'aaabaaabaaaabcde'.");
     REQUIRE(strcmp(occurrence,"aaaabcde")==0);
@@ -74,7 +77,8 @@ TEST_CASE("Test5", "[StringString]")
 TEST_CASE("Test6", "[MinMax]")
 {
     size_t SIZE = 3;
-    double *min, *max;
+    double defaultMin=-1, defaultMax=-1;
+    double *min=&defaultMin, *max=&defaultMax;
     double **matrix = (double **) malloc(SIZE * sizeof(double *));
     for (int i = 0; i < SIZE; i++) {
         matrix[i] = (double *) malloc(SIZE * sizeof(double));
@@ -95,7 +99,8 @@ TEST_CASE("Test6", "[MinMax]")
 TEST_CASE("Test7", "[MinMax]")
 {
     size_t SIZE = 1;
-    double *min, *max;
+    double defaultMin=-1, defaultMax=-1;
+    double *min=&defaultMin, *max=&defaultMax;
     double **matrix = (double **) malloc(SIZE * sizeof(double *));
     for (int i = 0; i < SIZE; i++) {
         matrix[i] = (double *) malloc(SIZE * sizeof(double));
@@ -116,7 +121,8 @@ TEST_CASE("Test7", "[MinMax]")
 TEST_CASE("Test8", "[MinMax]")
 {
     size_t SIZE = 5;
-    double *min, *max;
+    double defaultMin=-1, defaultMax=-1;
+    double *min=&defaultMin, *max=&defaultMax;
     double **matrix = (double **) malloc(SIZE * sizeof(double *));
     for (int i = 0; i < SIZE; i++) {
         matrix[i] = (double *) malloc(SIZE * sizeof(double));

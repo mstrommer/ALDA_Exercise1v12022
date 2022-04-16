@@ -41,7 +41,7 @@
       "points": 2
     },
     {
-      "name": "StringString 2",
+      "name": "StringString 3",
       "setup": "make exercise1",
       "run": "./exercise1 Test5",
       "input": "",

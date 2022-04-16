@@ -41,9 +41,10 @@ TEST_CASE("Test3", "[StringString]")
 {
     char haystack[] = "Hello World!";
     char needle[] = "or";
-    char testString[] = "something";
-    char *occurrence = testString;
+    char *occurrence = NULL;
     stringString(haystack, needle, &occurrence);
+    INFO("Testing if a valid pointer is returned.");
+    REQUIRE(occurrence!=NULL);
     INFO("Testing to find substring 'or' in 'Hello World!'.");
     REQUIRE(strcmp(occurrence,"orld!")==0);
 }
@@ -63,9 +64,10 @@ TEST_CASE("Test5", "[StringString]")
 {
     char haystack[] = "aaabaaabaaaabcde";
     char needle[] = "aaaab";
-    char testString[] = "something";
-    char *occurrence = testString;
+    char *occurrence = NULL;
     stringString(haystack, needle, &occurrence);
+    INFO("Testing if a valid pointer is returned.");
+    REQUIRE(occurrence!=NULL);
     INFO("Testing to find substring 'aaaab' in 'aaabaaabaaaabcde'.");
     REQUIRE(strcmp(occurrence,"aaaabcde")==0);
 }
@@ -77,8 +79,7 @@ TEST_CASE("Test5", "[StringString]")
 TEST_CASE("Test6", "[MinMax]")
 {
     size_t SIZE = 3;
-    double defaultMin=-1, defaultMax=-1;
-    double *min=&defaultMin, *max=&defaultMax;
+    double *min=NULL, *max=NULL;
     double **matrix = (double **) malloc(SIZE * sizeof(double *));
     for (int i = 0; i < SIZE; i++) {
         matrix[i] = (double *) malloc(SIZE * sizeof(double));
@@ -89,6 +90,9 @@ TEST_CASE("Test6", "[MinMax]")
         }
     }
     minMax(matrix, SIZE, &min, &max);
+    INFO("Testing if variables min and max have been assigned a valid pointer.");
+    REQUIRE(min != NULL);
+    REQUIRE(max != NULL);
     INFO("Testing if the minimum 0.0 was found correctly:");
     REQUIRE(*min == 0.0);
     INFO("Minimum was correct.");
@@ -99,8 +103,7 @@ TEST_CASE("Test6", "[MinMax]")
 TEST_CASE("Test7", "[MinMax]")
 {
     size_t SIZE = 1;
-    double defaultMin=-1, defaultMax=-1;
-    double *min=&defaultMin, *max=&defaultMax;
+    double *min=NULL, *max=NULL;
     double **matrix = (double **) malloc(SIZE * sizeof(double *));
     for (int i = 0; i < SIZE; i++) {
         matrix[i] = (double *) malloc(SIZE * sizeof(double));
@@ -111,6 +114,9 @@ TEST_CASE("Test7", "[MinMax]")
         }
     }
     minMax(matrix, SIZE, &min, &max);
+    INFO("Testing if variables min and max have been assigned a valid pointer.");
+    REQUIRE(min != NULL);
+    REQUIRE(max != NULL);
     INFO("Testing if the minimum 0.0 was found correctly:");
     REQUIRE(*min == 0.0);
     INFO("Minimum was correct.");
@@ -121,8 +127,7 @@ TEST_CASE("Test7", "[MinMax]")
 TEST_CASE("Test8", "[MinMax]")
 {
     size_t SIZE = 5;
-    double defaultMin=-1, defaultMax=-1;
-    double *min=&defaultMin, *max=&defaultMax;
+    double *min=NULL, *max=NULL;
     double **matrix = (double **) malloc(SIZE * sizeof(double *));
     for (int i = 0; i < SIZE; i++) {
         matrix[i] = (double *) malloc(SIZE * sizeof(double));
@@ -135,6 +140,9 @@ TEST_CASE("Test8", "[MinMax]")
     matrix[0][0] = 100.0;
     matrix[2][2] = -3.0;
     minMax(matrix, SIZE, &min, &max);
+    INFO("Testing if variables min and max have been assigned a valid pointer.");
+    REQUIRE(min != NULL);
+    REQUIRE(max != NULL);
     INFO("Testing if the minimum -3.0 was found correctly:");
     REQUIRE(*min == -3.0);
     INFO("Minimum was correct.");
